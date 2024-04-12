@@ -1,22 +1,7 @@
-const cardList = [
-    {
-        title: "Solana",
-        image: "images/Solana.jpg",
-        link: "About Solana",
-        desciption: "Demo desciption about Solana"
-    },
-    {
-        title: "Ethernum",
-        image: "images/Ethernum.png",
-        link: "About Ethernum",
-        desciption: "Demo desciption about Ethernum"
-    }
-];
-
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = '<div class="col s4 center-align">'+
-        '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+item.image+'">'+
+        '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+item.path+'">'+
         '</div><div class="card-content">'+
         '<span class="card-title activator grey-text text-darken-4">'+item.title+'<i class="material-icons right">more_vert</i></span><p><a href="#">'+item.link+'</a></p></div>'+
         '<div class="card-reveal">'+
@@ -27,25 +12,46 @@ const addCards = (items) => {
     });
 }
 
-function clickMe() {
-   
-}
-
 function submitForm() {
     let formData = {};
-    formData.first_name = $('#first_name').val();
-    formData.last_name = $('#last_name').val();
-    console.log(formData);
+    formData.title = $('#title').val();
+    formData.path = $('#path').val();
+    formData.link = $('#link').val();
+    formData.description = $('#description').val();
+
+    console.log("Form Data Submitted: ", formData);
+    postCoin(formData);
 }
+
+function getCoins() {
+    $.get('api/cats', (response) => {
+        console.log(response.data);
+        if (response.data) {
+            addCards(response.data);
+        }
+    })
+}
+
+function postCoin(coin) {
+    $.ajax({
+        url: 'api/coin',
+        data: coin,
+        type: 'POST',
+        success: (result) => {
+            console.log(result.data);
+        }
+    })
+}
+    
 
 $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('#clickMeButton').click(()=>{});
+    getCoins();
+    $('.modal').modal();
     $('#formSubmit').click(()=>{
         submitForm();
     });
-    addCards(cardList);
-    $('.modal').modal();
 });
 
       
