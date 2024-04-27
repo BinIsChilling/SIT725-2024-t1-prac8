@@ -24,7 +24,7 @@ function submitForm() {
 }
 
 function getCoins() {
-    $.get('api/cats', (response) => {
+    $.get('api/coins', (response) => {
         console.log(response.data);
         if (response.data) {
             addCards(response.data);
@@ -34,11 +34,12 @@ function getCoins() {
 
 function postCoin(coin) {
     $.ajax({
-        url: 'api/coin',
+        url: 'api/coins',
         data: coin,
         type: 'POST',
         success: (result) => {
             console.log(result.data);
+            location.reload();
         }
     })
 }
