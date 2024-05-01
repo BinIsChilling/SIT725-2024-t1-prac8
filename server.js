@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 let port = process.env.port || 3000;
+let io = require("http").createServer(app);
 let router = require('./routes/routes');
 
 app.use(express.static(__dirname + '/'));
@@ -36,6 +37,17 @@ app.use('/api/coins', router);
 //    let collection = await client.db().collection('Coins');
 //    return collection.find().toArray();
 //}
+
+io.on('connection', (socket) => {
+    console.log('user connected');
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+
+    setInterval(()=>{
+        socket.emit('number', parseInt(Math.random()*10));
+    }, 1000);
+});
 
 app.listen(port, () => {
     console.log('server started');

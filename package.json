@@ -1,7 +1,7 @@
 {
-  "name": "sit725-2024-t1-p6",
+  "name": "sit725-2024-t1-p7",
   "version": "1.0.0",
-  "description": "prac4",
+  "description": "prac7",
   "main": "server.js",
   "scripts": {
     "test": "mocha --reporter spec",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/BinIsChilling/SIT725-2024-T1-p6.git"
+    "url": "https://github.com/BinIsChilling/SIT725-2024-t1-prac7.git"
   },
   "author": "Anson Au",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BinIsChilling/SIT725-2024-T1-p6/issues"
+    "url": "https://github.com/BinIsChilling/SIT725-2024-T1-prac7/issues"
   },
-  "homepage": "https://github.com/BinIsChilling/SIT725-2024-T1-p6.#readme",
+  "homepage": "https://github.com/BinIsChilling/SIT725-2024-T1-prac7.#readme",
   "dependencies": {
     "chai": "^5.1.0",
     "express": "^4.19.2",
@@ -24,6 +24,7 @@
     "mongodb": "^6.5.0",
     "monodb": "^1.5.1",
     "request": "^2.88.2",
-    "save": "^2.9.0"
+    "save": "^2.9.0",
+    "socket.io": "^4.7.5"
   }
 }
