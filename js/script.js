@@ -1,6 +1,6 @@
 let socket = io();
-socket.on('number', (msg) => {
-console.log('Random number: ' + msg);
+socket.on('number', (message) => {
+console.log('Random number: ' + message);
 })
 
 const addCards = (items) => {

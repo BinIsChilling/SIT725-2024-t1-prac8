@@ -1,7 +1,8 @@
 let express = require('express');
 let app = express();
+let io = require("socket.io")(http);
 let port = process.env.port || 3000;
-let io = require("http").createServer(app);
+let http = require("http").createServer(app);
 let router = require('./routes/routes');
 
 app.use(express.static(__dirname + '/'));
