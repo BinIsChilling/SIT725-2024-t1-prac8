@@ -20,6 +20,7 @@
   "dependencies": {
     "chai": "^5.1.0",
     "express": "^4.19.2",
+    "http": "^0.0.1-security",
     "mocha": "^10.4.0",
     "mongodb": "^6.5.0",
     "monodb": "^1.5.1",
